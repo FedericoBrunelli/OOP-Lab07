@@ -1,6 +1,8 @@
 package it.unibo.oop.lab.anonymous1;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import it.unibo.oop.lab.socialnetwork.SocialNetworkUser;
@@ -75,6 +77,13 @@ public final class TestAnonymousComparator {
          * REFER TO LESSON 13-Advanced-Mechanisms.pdf, slide 41
          */
         // TODO
+        final Comparator<User> sortAscending = new Comparator<>() {
+        	public int compare(final User u1, final User u2) {
+        		return Integer.compare(u1.getAge(), u2.getAge());
+        	}
+        };
+        
+        Collections.sort(denzelUsers, sortAscending);
         /*
          * expected Result
          */
@@ -106,6 +115,14 @@ public final class TestAnonymousComparator {
          * class Collections
          */
         // TODO
+        
+        final Comparator<User> sortDescending = new Comparator<>() {
+        	public int compare(final User u1, final User u2) {
+        		return Integer.compare(u2.getAge(), u1.getAge());
+        	}
+        };
+        
+        Collections.sort(rossiUsers, sortDescending);
         /*
          * expected Result
          */
