@@ -37,7 +37,13 @@ public enum Sport {
      * - soccer
      * 
      */
-
+	BASKET(Place.INDOOR, 5, "Basketball"),
+	VOLLEY(Place.INDOOR, 6, "Volleyball"),
+	TENNIS(Place.OUTDOOR, 1, "Tennis"),
+	BIKE(Place.OUTDOOR, 1, "Bike"),
+	F1(Place.OUTDOOR, 1, "Formula 1"),
+	MOTOGP(Place.OUTDOOR, 1, "MotoGP"),
+	SOCCER(Place.OUTDOOR, 11, "Soccer");
     /*
      * TODO
      * 
@@ -45,7 +51,9 @@ public enum Sport {
      * 
      * Declare required fields
      */
-
+	private final Place place;
+	private final String actualName;
+	private final int members;
     /*
      * TODO
      * 
@@ -55,7 +63,11 @@ public enum Sport {
      * 
      * - Sport(final Place place, final int noTeamMembers, final String actualName)
      */
-
+	Sport(final Place p, final int teamMembers, final String name) {
+		this.place = p;
+		this.actualName = name;
+		this.members = teamMembers;
+	}
     /*
      * TODO
      * 
@@ -81,4 +93,22 @@ public enum Sport {
      * 
      * Returns the string representation of a sport
      */
+	
+	public boolean isIndividualSport() {
+		return (this.members == 1);
+	}
+	
+	public boolean isIndoorSport() {
+		return (this.place == Place.INDOOR);
+	}
+	
+	public Place getPlace() {
+		return this.place;
+	}
+	
+	public String toString() {
+		return "The sport is: "+this.actualName+
+				"\tMembers: "+this.members+"\tPlace: "+this.place;
+	}
+	
 }
